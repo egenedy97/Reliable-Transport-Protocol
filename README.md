@@ -1,8 +1,6 @@
-<<<<<<< HEAD
 # TCP_Network
 =======
 # Implementing a Reliable Transport Protocol
->>>>>>> 8bebee953f3e8269907a86ffeae9cb8236387d59
 this is a project for CSE335 By Ayman Bahaa
 1. Overview
 ===========
