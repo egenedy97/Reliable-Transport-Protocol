@@ -120,7 +120,7 @@ It is likely that random number generation on your machine is different from wha
 
 ![instruction preview](https://github.com/genedy377/Reliable-Transport-Protocol/blob/master/figure%201.jpg)
 
-### TestCases 
+### TestCases :
 ### 1.
 ```
 10
