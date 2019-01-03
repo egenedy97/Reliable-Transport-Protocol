@@ -1,7 +1,6 @@
-# TCP_Network
-=======
 # Implementing a Reliable Transport Protocol
 this is a project for CSE335 By Ayman Bahaa
+
 1. Overview
 ===========
 
@@ -15,13 +14,16 @@ Since you probably don't have standalone machines (with an OS that you can modif
 The procedures you will write are for the sending entity (A) and the receiving entity (B). Only unidirectional transfer of data (from A to B) is required. Of course, the B side will have to send packets to A to acknowledge (positively or negatively) receipt of data. Your routines are to be implemented in the form of the procedures described below. These procedures will be called by (and will call) procedures that the text book author has written which emulate a network environment. The overall structure of the environment is shown in the attached figure (structure of the emulated environment):
 
 The unit of data passed between the upper layers and your protocols is a message, which is declared as:
-
+```
 struct msg {
 char data[20];
 };
+
+```
 This declaration, and all other data structure and emulator routines, as well as stub routines (i.e., those you are to complete) are in the atached file, prog2.c, described later. Your sending entity will thus receive data in 20-byte chunks from layer5; your receiving entity should deliver 20-byte chunks of correctly received data to layer5 at the receiving side.
 
 The unit of data passed between your routines and the network layer is the packet, which is declared as:
+```
 
 struct pkt {
 int seqnum;
@@ -29,6 +31,8 @@ int acknum;
 int checksum;
 char payload[20];
 };
+
+```
 Your routines will fill in the payload field from the message data passed down from layer5. The other packet fields will be used by your protocols to insure reliable delivery, as we've seen in class.
 
 The routines you will write are detailed below. As noted above, such procedures in real-life would be part of the operating system, and would be called by other procedures in the operating system.
