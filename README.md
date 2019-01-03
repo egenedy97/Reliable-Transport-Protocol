@@ -118,5 +118,5 @@ you can implement bidirectional transfer of messages. In this case, entities A a
 If you get an error message:
 It is likely that random number generation on your machine is different from what this emulator expects. Please take a look at the routine jimsrand() in the emulator code. Sorry. then you'll know you'll need to look at how random numbers are generated in the routine jimsrand(); see the comments in that routine
 
-![instruction preview](https://github.com/genedy377/Reliable-Transport-Protocol/figure1.png)
+![instruction preview](https://github.com/genedy377/Reliable-Transport-Protocol/figure%201.jpg)
 
