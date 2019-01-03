@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <string.h>
-
+#define BIDIRECTIONAL 0
 /* ******************************************************************
  ALTERNATING BIT AND GO-BACK-N NETWORK EMULATOR:
      VERSION 1.1  J.F.Kurose
