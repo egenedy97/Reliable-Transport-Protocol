@@ -2,14 +2,12 @@
 this is a project for CSE335 By Ayman Bahaa
 
 1. Overview
-===========
 
 In this programming assignment, you will be writing the sending and receiving transport-level code for implementing a simple reliable data transfer protocol. There are two versions of this project, the Alternating-Bit-Protocol version and the Go-Back-N version. This project should be fun since your implementation will differ very little from what would be required in a real-world situation.
 
 Since you probably don't have standalone machines (with an OS that you can modify), your code will have to execute in a simulated hardware/software environment. However, the programming interface provided to your routines, i.e., the code that would call your entities from above and from below is very close to what is done in an actual UNIX environment. (Indeed, the software interfaces described in this programming assignment are much more realistic that the infinite loop senders and receivers that many texts describe). Stopping/starting of timers are also simulated, and timer interrupts will cause your timer handling routine to be activated.
 
 2. The routines you will write
-==============================
 
 The procedures you will write are for the sending entity (A) and the receiving entity (B). Only unidirectional transfer of data (from A to B) is required. Of course, the B side will have to send packets to A to acknowledge (positively or negatively) receipt of data. Your routines are to be implemented in the form of the procedures described below. These procedures will be called by (and will call) procedures that the text book author has written which emulate a network environment. The overall structure of the environment is shown in the attached figure (structure of the emulated environment):
 
@@ -48,7 +46,6 @@ B_input(packet),where packet is a structure of type pkt. This routine will be ca
 B_init() This routine will be called once, before any of your other B-side routines are called. It can be used to do any required initialization.
 
 3. Software Interfaces
-=======================
 
 The procedures described above are the ones that you will write. The text book author has written the following routines which can be called by your routines:
 
@@ -61,7 +58,6 @@ tolayer3(calling_entity,packet), where calling_entity is either 0 (for the A-sid
 tolayer5(calling_entity,message), where calling_entity is either 0 (for A-side delivery to layer 5) or 1 (for B-side delivery to layer 5), and message is a structure of type msg. With unidirectional data transfer, you would only be calling this with calling_entity equal to 1 (delivery to the B-side). Calling this routine will cause data to be passed up to layer 5.
 
 4. The simulated network environment
-====================================
 
 A call to procedure tolayer3() sends packets into the medium (i.e., into the network layer). Your procedures A_input() and B_input() are called when a packet is to be delivered from the medium to your protocol layer.
 
@@ -88,7 +84,6 @@ We recommend that you should hand in a code listing, a design document, and samp
 
 
 6. The Go-Back-N version of this project.
-=========================================
 
 You are to write the procedures, A_output(),A_input(),A_timerinterrupt(),A_init(),B_input(), and B_init() which together will implement a Go-Back-N unidirectional transfer of data from the A-side to the B-side, with a window size of 8. Your protocol should use both ACK and NACK messages. Consult the alternating-bit-protocol version of this project above for information about how to obtain the network emulator.
 
@@ -104,11 +99,10 @@ A_timerinterrupt() This routine will be called when A's timer expires (thus gene
 Consult the Alternating-bit-protocol version of this project above for a general description of what you might want to hand in. You might want to hand in output for a run that was long enough so that at least 20 messages were successfully transfered from sender to receiver (i.e., the sender receives ACK for these messages) transfers, a loss probability of 0.2, and a corruption probability of 0.2, and a trace level of 2, and a mean time between arrivals of 10. You might want to annotate parts of your printout with a colored pen showing how your protocol correctly recovered from packet loss and corruption.
 
 For extra credit
-=================
+
 you can implement bidirectional transfer of messages. In this case, entities A and B operate as both a sender and receiver. You may also piggyback acknowledgments on data packets (or you can choose not to do so). To get the author'semulator to deliver messages from layer 5 to your B_output() routine, you will need to change the declared value of BIDIRECTIONAL from 0 to 1.
 
 7. Helpful Hints and the like
-=============================
 
 *Checksumming. You can use whatever approach for checksumming you want. Remember that the sequence number and ack field can also be corrupted. We would suggest a TCP-like checksum, which consists of the sum of the (integer) sequence and ack field values, added to a character-by-character sum of the payload field of the packet (i.e., treat each character as if it were an 8 bit integer and just add them together).
 
