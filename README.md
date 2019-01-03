@@ -24,14 +24,12 @@ This declaration, and all other data structure and emulator routines, as well as
 
 The unit of data passed between your routines and the network layer is the packet, which is declared as:
 ```
-
 struct pkt {
 int seqnum;
 int acknum;
 int checksum;
 char payload[20];
 };
-
 ```
 Your routines will fill in the payload field from the message data passed down from layer5. The other packet fields will be used by your protocols to insure reliable delivery, as we've seen in class.
 
